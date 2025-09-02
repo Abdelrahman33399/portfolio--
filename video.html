@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>portfolio-Æ</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* إضافة أنماط جديدة للفيديو */
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+      background-color: #000;
+      margin-bottom: 10px;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .play-btn:hover {
+      background: rgba(255, 255, 255, 0.8);
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="background"></div>
+
+  <section class="hero">
+    <div class="hero-content" style="text-align: center; margin: 0 auto;">
+      <h1 class="neon-text">Video Editing</h1>
+      <p style="color: #aaa; margin: 20px 0;">اجزاء من الشغل علي البريمير</p>
+    </div>
+  </section>
+
+  <section class="portfolio-grid-container">
+    <div class="portfolio-grid">
+      <!-- الموقع 1 -->
+      <div class="grid-item">
+        <div class="video-container">
+          <video src="image/website1.mp4" controls></video>
+          <button class="play-btn">شاهد الفيديو</button>
+        </div>
+        <h3>فيديو تعريفي لجامع الأزر الشريف</h3>
+        <p></p>
+        <a href="image/website1.mp4" target="_blank" class="btn">مشاهدة الفيديو بالكامل</a>
+      </div>
+
+      <!-- الموقع 2 -->
+      <div class="grid-item">
+        <div class="video-container">
+          <video src="image/website2.mp4" controls></video>
+          <button class="play-btn">شاهد الفيديو</button>
+        </div>
+        <h3>فيديو لبعض اللقطات لمنطقة الاهرامات</h3>
+        <p></p>
+        <a href="image/website2.mp4" target="_blank" class="btn">مشاهدة الفيديو بالكامل</a>
+      </div>
+
+      <!-- الموقع 3 -->
+      <div class="grid-item">
+        <div class="video-container">
+          <video src="image/White Grid.mp4" controls></video>
+          <button class="play-btn">شاهد الفيديو</button>
+        </div>
+        <h3>فيديو تعريفي </h3>
+        <p>فيديو تعريفي لنظام الساعات المعتمدة لقسم تكنولوجيا التعليم بالتعاون مع اتحادطلاب كلية تربية نوعية جامعة عين شمس</p>
+        <a href="image/White Grid.mp4" target="_blank" class="btn">مشاهدة الفيديو بالكامل</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="back-home-container">
+    <a href="../index.html" class="back-btn">العودة للرئيسية</a>
+  </div>
+
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/16h4mSVvQ8/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+      <a href="https://www.instagram.com/3bdo_elshafay_official?igsh=aDY1czNtMmo5NGVx" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+      <a href="https://wa.me/201551706847" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+      <a href="https://www.linkedin.com/in/abdelrahman-ebrahem-1b8b69332" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+    </div>
+    <p>&copy; 2025 Æ. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <!-- السكريبتات -->
+  <script src="../js/three.min.js"></script>
+  <script src="../js/gsap.min.js"></script>
+  <script src="../libs/scrollreveal.min.js"></script>
+  <script src="../js/main.js"></script>
+
+  <script>
+    // تشغيل وإيقاف الفيديو عند النقر على الزر
+    document.querySelectorAll('.play-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const video = this.closest('.video-container').querySelector('video');
+        if (video.paused) {
+          video.play();
+          this.textContent = 'إيقاف';
+        } else {
+          video.pause();
+          this.textContent = 'شاهد الفيديو';
+        }
+      });
+    });
+
+    // منع التشغيل التلقائي الطويل (10 ثوانٍ فقط)
+    document.querySelectorAll('video').forEach(video => {
+      video.addEventListener('play', function() {
+        setTimeout(() => {
+          if (!this.paused) {
+            this.pause();
+            this.currentTime = 0;
+            const btn = this.closest('.video-container').querySelector('.play-btn');
+            btn.textContent = 'شاهد الفيديو';
+          }
+        }, 10000); // 10 ثوانٍ
+      });
+    });
+  </script>
+
+</body>
+</html>
