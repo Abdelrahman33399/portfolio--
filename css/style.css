@@ -225,12 +225,12 @@ body {
   color: #FF7700;
   margin: 0 15px;
   transition: 0.3s;
-  font-size: 2rem;
+  font-size: 0.8rem;
 }
 
 .social-icons a:hover {
   color: #FFB347;
-  transform: scale(1.2);
+  transform: scale(0.8);
 }
 
 /* خلفية Three.js */
@@ -377,7 +377,7 @@ body {
   }
 
   .social-icons a {
-    font-size: 1.8rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -424,3 +424,4 @@ body {
   z-index: 10;
   border-color: #FFB347;
 }
+
