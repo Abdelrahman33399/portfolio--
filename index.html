@@ -4,40 +4,241 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>portfolio-Æ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css" />
-  <!-- إصلاح: مسافة زائدة في الرابط -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      text-decoration: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 1000;
+    }
+    #backToTop.visible { opacity: 1; visibility: visible; }
+    #backToTop:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #00FF7F;
+      text-shadow: 0 0 5px #00FF7F;
+    }
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .achievement-card {
+      background: rgba(17, 17, 17, 0.7);
+      border: 1px solid rgba(0, 255, 127, 0.3);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .achievement-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 255, 127, 0.2);
+    }
+    .achievement-card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      color: #00FF7F;
+    }
+    .achievement-card h3 {
+      font-size: 1.3rem;
+      margin: 12px 0 8px;
+      color: #fff;
+    }
+    .achievement-card p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .about-card {
+      max-width: 500px;
+      margin: 0 auto;
+      background: rgba(17, 17, 17, 0.7);
+      border: 1px solid rgba(0, 255, 127, 0.3);
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .about-card img {
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      object-fit: cover;
+    }
+    .about-card-content {
+      padding: 30px 20px;
+    }
+    .about-card h1 {
+      font-size: 2.2rem;
+      margin: 15px 0 10px;
+      color: #00FF7F;
+    }
+    .about-card .sub-title {
+      font-size: 1.3rem;
+      color: #aaa;
+      margin-bottom: 15px;
+    }
+    .about-card .description {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .hero-name {
+      padding: 40px 0;
+      text-align: center;
+    }
+    .hero-name h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- خلفية ثلاثية الأبعاد -->
   <div id="background"></div>
-
-  <!-- الشريط العلوي -->
   <nav class="navbar">
     <div class="logo">Æ<span></span></div>
   </nav>
-
-  <!-- القسم الرئيسي -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="neon-text"><span>Abdelrahman Ebrahem</span></h1>
-      <p class="sub-title">EdTech | Front-End Skills | Adobe & Office Pro</p>
-      <p class="description">I specialize in Front-End Development, and I’m dedicated to building modern, scalable user experiences using HTML, CSS, and JavaScript, with a strong focus on performance, cross-browser compatibility, and responsive design.
-
-In addition, I have hands-on experience using Adobe Creative Suite tools — including Photoshop, Illustrator, and InDesign — to create visual assets and interface elements. I also use Microsoft Office daily for workflow organization and presentation delivery.
-
-I deliver effective digital solutions by combining technical skills with a deep understanding of user needs, while maintaining high-quality standards in every project. I believe innovation and continuous learning are the foundation of success in technology..</p>
-      <a href="#services" class="btn">اعرف أكثر</a>
-    </div>
-
-    <div class="profile-container">
-      <div class="pulse-circle"></div>
-      <img src="image/profile.jpg" alt="الصورة الشخصية" class="profile-img" />
+  <section class="hero-name">
+    <h1 class="neon-text"><span>Abdelrahman Ebrahem</span></h1>
+  </section>
+  <section class="section" id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-card">
+      <img src="image/profile.jpg" alt="Abdelrahman Ebrahem - Profile Photo">
+      <div class="about-card-content">
+        <h1 class="neon-text"><span>Abdelrahman Ebrahem</span></h1>
+        <p class="sub-title">Front-End Developer | EdTech & Graphic Designer | Adobe & Office Pro</p>
+        <p class="description">
+          I specialize in building modern, scalable user interfaces using HTML, CSS, and JavaScript — with a strong focus on performance, cross-browser compatibility, and responsive design. 
+          I have hands-on experience with Adobe Creative Suite (Photoshop, Illustrator, InDesign) for UI assets and visual design, and I use Microsoft Office daily for workflow and presentations.
+          I’ve been freelancing as a Front-End Developer for over a year, worked in Human Resources for a full year, and am currently an iCareer Ambassador for the past 3 months.
+          I believe innovation and continuous learning are the foundation of success in tech — and I’m committed to delivering high-quality digital solutions that meet real user needs.
+        </p>
+        <a href="#services" class="btn">Learn More</a>
+      </div>
     </div>
   </section>
+  <section class="section" id="achievements">
+    <h2 class="section-title">My Achievements</h2>
+    <div class="sub-section">
+      <h3 class="sub-title">🎓 Certifications</h3>
+      <div class="achievements-grid">
 
-  <!-- قسم الخدمات -->
+        <div class="achievement-card">
+          <div class="icon"><i class="fab fa-adobe"></i></div>
+          <h3>Adobe Certified Professional</h3>
+          <p>Photoshop & Illustrator | 2025</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-microchip"></i></div>
+          <h3>CIT Certificate of IT</h3>
+          <p>Information Technology Fundamentals | 2024</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fab fa-html5"></i></div>
+          <h3>Web Design Certification</h3>
+          <p>HTML & CSS | 2024</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fab fa-js"></i></div>
+          <h3>JavaScript Essentials</h3>
+          <p>Certified | 2024</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-table"></i></div>
+          <h3>Excel Spreadsheets</h3>
+          <p>Advanced Data Management | 2024</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-bullhorn"></i></div>
+          <h3>Digital Marketing</h3>
+          <p>Strategic Online Campaigns | 2024</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-store"></i></div>
+          <h3>E-Commerce</h3>
+          <p>Online Business Fundamentals | 2024</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-brain"></i></div>
+          <h3>AI Design</h3>
+          <p>Artificial Intelligence Applications | 2024</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-coins"></i></div>
+          <h3>Profit from AI</h3>
+          <p>Monetizing AI Solutions | 2024</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-hands"></i></div>
+          <h3>Sign Language</h3>
+          <p>Basic Communication Skills | 2024</p>
+        </div>
+
+      </div>
+    </div>
+    <div class="sub-section">
+      <h3 class="sub-title">💼 Professional Experience</h3>
+      <div class="achievements-grid">
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Freelance Front-End Developer</h3>
+          <p>Building responsive websites since 2024</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-users-cog"></i></div>
+          <h3>HR Specialist</h3>
+          <p>Managed recruitment & HR operations for 1 year</p>
+        </div>
+
+        <div class="achievement-card">
+          <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>iCareer Ambassador</h3>
+          <p>Empowering students with career guidance since 2025</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
   <section class="services" id="services">
     <h2 class="section-title neon-text">معرض الأعمال</h2>
     <div class="services-grid">
@@ -48,7 +249,7 @@ I deliver effective digital solutions by combining technical skills with a deep 
         <a href="websites.html" class="btn">عرض المزيد</a>
       </div>
       <div class="service-card">
-        <div class="icon neon-icon"><i class="fas fa-pen-nib"></i></div>
+        <div class="icon neon-icon"><i class="fas fa-video"></i></div>
         <h3>Video Editing</h3>
         <p>تحرير الفيديوهات بشكل احترافي وجذاب.</p>
         <a href="video.html" class="btn">عرض المزيد</a>
@@ -61,11 +262,8 @@ I deliver effective digital solutions by combining technical skills with a deep 
       </div>
     </div>
   </section>
-
-  <!-- الفوتر -->
   <footer class="footer">
     <div class="social-icons">
-      <!-- عدل الروابط لتصبح حقيقية -->
       <a href="https://www.facebook.com/share/16h4mSVvQ8/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
       <a href="https://www.instagram.com/3bdo_elshafay_official?igsh=aDY1czNtMmo5NGVx" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
       <a href="https://wa.me/201551706847" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
@@ -73,12 +271,21 @@ I deliver effective digital solutions by combining technical skills with a deep 
     </div>
     <p>&copy; 2025 Æ. جميع الحقوق محفوظة.</p>
   </footer>
-  <!-- المكتبات -->
-  <!-- تأكد أن الملفات موجودة في المجلدات الصحيحة -->
+  <a href="#" id="backToTop" class="fas fa-arrow-up"></a>
   <script src="js/three.min.js"></script>
   <script src="js/gsap.min.js"></script>
   <script src="libs/scrollreveal.min.js"></script>
   <script src="js/main.js"></script>
-</body>
+  <script>
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 300);
+    });
+    backToTop.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 
+</body>
 </html>
